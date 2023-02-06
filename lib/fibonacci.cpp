@@ -3,12 +3,20 @@
 
 unsigned long long fibonacci(int number)
 {
-	unsigned long long arr[] = {1, 1};
+	unsigned long long* arr = new unsigned long long[number];
+	arr[0] = 1;
+	arr[1] = 1;
+	unsigned long long res = 0;
 
-	for (int i = 3; i <= number; ++i)
+	for (int i = 2; i < number; ++i)
 	{
-		arr[i % 2] = arr[0] + arr[1];
+		arr[i] = arr[i - 2] + arr[i - 1];
 	}
+	
+	res = arr[number - 1];
 
-	return arr[number % 2];
+	delete[] arr;
+	arr = nullptr;
+
+	return res;
 }

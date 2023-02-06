@@ -2,8 +2,6 @@ cmake_minimum_required(VERSION 3.5)
 
 project(fibonacci)
 
-add_subdirectory("lib")
-
 file(GLOB
 	lib_source "./lib/*.cpp")
 
